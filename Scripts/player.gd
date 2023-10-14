@@ -6,17 +6,6 @@ extends CharacterBody2D
 @export var jump_force = 500
 
 func _physics_process(delta):
-	#si el juego es plataformero 2d
-	#aqui defino la gravedad
-	#if !is_on_floor():
-	#	velocity.y += gravity
-	#	if velocity.y > 1000:
-	#		velocity.y = 1000
-	
-	#ahora defino el salto del jugador 
-	#if Input.is_action_just_pressed("jump"):
-	#	velocity.y = -jump_force
-	
 	
 	var horizontal_direction = Input.get_axis("left", "right")
 	velocity.x = speed * horizontal_direction
