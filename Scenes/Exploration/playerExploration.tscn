@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=3 uid="uid://bek7l5ootmjx7"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_2m3sq"]
+[ext_resource type="Texture2D" uid="uid://dmt6eoid8gqol" path="res://Sprites/IMG_2839.PNG" id="2_a0ehu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpeyy"]
+size = Vector2(57, 112)
+
+[sub_resource type="Animation" id="Animation_wrpft"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Img2839:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_mfvlc"]
+resource_name = "iddle"
+length = 1.5
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_34abd"]
+resource_name = "walk_down"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_08vbs"]
+resource_name = "walk_left"
+length = 0.33
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Img2839:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_03ep2"]
+resource_name = "walk_right"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_nwinw"]
+resource_name = "walk_up"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lh7y4"]
+_data = {
+"RESET": SubResource("Animation_wrpft"),
+"iddle": SubResource("Animation_mfvlc"),
+"walk_down": SubResource("Animation_34abd"),
+"walk_left": SubResource("Animation_08vbs"),
+"walk_right": SubResource("Animation_03ep2"),
+"walk_up": SubResource("Animation_nwinw")
+}
+
+[node name="PlayerExploration" type="CharacterBody2D"]
+script = ExtResource("1_2m3sq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 5)
+shape = SubResource("RectangleShape2D_mpeyy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lh7y4")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.5
+drag_top_margin = 0.45
+drag_right_margin = 0.5
+drag_bottom_margin = 0.45
+editor_draw_drag_margin = true
+
+[node name="Img2839" type="Sprite2D" parent="."]
+position = Vector2(-8, -72)
+texture = ExtResource("2_a0ehu")
+hframes = 4
+vframes = 4
+frame = 12

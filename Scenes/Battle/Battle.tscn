@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxwpeivc1ytwf"]
+
+[ext_resource type="PackedScene" uid="uid://bmvjnc8s3i6ei" path="res://Scenes/Battle/playerBattle.tscn" id="1_rsvhr"]
+[ext_resource type="Texture2D" uid="uid://bry4jm4nvn2bq" path="res://icon.svg" id="2_cq5ym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1tug"]
+size = Vector2(1152, 128)
+
+[node name="Battle" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_rsvhr")]
+position = Vector2(80, 160)
+
+[node name="Tile" type="StaticBody2D" parent="."]
+position = Vector2(0, -64)
+
+[node name="Up" type="CollisionShape2D" parent="Tile"]
+position = Vector2(576, 320)
+shape = SubResource("RectangleShape2D_n1tug")
+disabled = true
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Tile/Up"]
+texture = ExtResource("2_cq5ym")
+
+[node name="Mid" type="CollisionShape2D" parent="Tile"]
+position = Vector2(576, 448)
+shape = SubResource("RectangleShape2D_n1tug")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Tile/Mid"]
+texture = ExtResource("2_cq5ym")
+
+[node name="Down" type="CollisionShape2D" parent="Tile"]
+position = Vector2(576, 576)
+shape = SubResource("RectangleShape2D_n1tug")
+disabled = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Tile/Down"]
+texture = ExtResource("2_cq5ym")
