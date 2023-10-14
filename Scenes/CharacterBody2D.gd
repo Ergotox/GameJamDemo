@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 func get_input():
 	var input_direction = Input.get_vector("left","right","down","up")
-	velocity = input_direction
+	velocity = inp
 func _physics_process(delta):
 	var direction = Input.get_axis("up", "down")
 
