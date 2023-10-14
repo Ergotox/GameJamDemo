@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var gravity = 30
 @export var jump_force = 500
 
+var score = 0
 func _physics_process(delta):
 	#si el juego es plataformero 2d
 	#aqui defino la gravedad
@@ -36,3 +37,11 @@ func _physics_process(delta):
 		$AnimationPlayer.play("iddle")
 	
 	move_and_slide()
+
+
+
+
+
+func _on_collect_zone_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+	score += 10
+	print(score)

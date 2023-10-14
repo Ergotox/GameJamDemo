@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://cs16nw7cvxwy6"]
+
+[ext_resource type="Texture2D" uid="uid://dl2ukgkwlcbva" path="res://Sprites/Daco_1717412.png" id="1_3wrw6"]
+[ext_resource type="Script" path="res://Scripts/notas.gd" id="1_kd76x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4t13"]
+atlas = ExtResource("1_3wrw6")
+region = Rect2(0, 764, 200, 191)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vagtg"]
+atlas = ExtResource("1_3wrw6")
+region = Rect2(200, 764, 200, 191)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kkkbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4t13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vagtg")
+}],
+"loop": true,
+"name": &"notasAnim",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmoso"]
+size = Vector2(136, 37)
+
+[node name="Notas" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_kd76x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_kkkbx")
+animation = &"notasAnim"
+frame_progress = 0.166168
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-69, 1)
+target_position = Vector2(-50, 0)
+
+[node name="CollectZone" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectZone"]
+position = Vector2(-2, 2.5)
+shape = SubResource("RectangleShape2D_fmoso")
+
+[connection signal="area_shape_entered" from="CollectZone" to="." method="_on_collect_zone_area_shape_entered"]
