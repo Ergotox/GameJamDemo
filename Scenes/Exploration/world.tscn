@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c87k73h7a3lbf"]
 
-[ext_resource type="PackedScene" uid="uid://bek7l5ootmjx7" path="res://Scenes/player.tscn" id="1_p2wr2"]
-[ext_resource type="PackedScene" uid="uid://cs16nw7cvxwy6" path="res://Scenes/notas.tscn" id="2_ywqe0"]
+[ext_resource type="PackedScene" uid="uid://bek7l5ootmjx7" path="res://Scenes/Exploration/playerExploration.tscn" id="1_p2wr2"]
+[ext_resource type="PackedScene" path="res://Scenes/notas.tscn" id="2_ywqe0"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qcx0f"]
 
