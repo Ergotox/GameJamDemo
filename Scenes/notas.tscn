@@ -25,26 +25,29 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vu6p2"]
-radius = 69.0652
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmoso"]
+size = Vector2(136, 37)
 
 [node name="Notas" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_kd76x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(604, 347)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_kkkbx")
 animation = &"notasAnim"
 frame_progress = 0.166168
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(600, 348)
-shape = SubResource("CircleShape2D_vu6p2")
-
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(533, 350)
+position = Vector2(-69, 1)
 target_position = Vector2(-50, 0)
 
-[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
+[node name="CollectZone" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectZone"]
+position = Vector2(-2, 2.5)
+shape = SubResource("RectangleShape2D_fmoso")
+
+[connection signal="area_shape_entered" from="CollectZone" to="." method="_on_collect_zone_area_shape_entered"]

@@ -1,16 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://c87k73h7a3lbf"]
+[gd_scene load_steps=6 format=3 uid="uid://c87k73h7a3lbf"]
 
 [ext_resource type="PackedScene" uid="uid://bek7l5ootmjx7" path="res://Scenes/player.tscn" id="1_p2wr2"]
+[ext_resource type="PackedScene" uid="uid://cs16nw7cvxwy6" path="res://Scenes/notas.tscn" id="2_ywqe0"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_qcx0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6j2jj"]
 size = Vector2(754, 107)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6omn"]
+size = Vector2(53, 466)
+
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_p2wr2")]
-position = Vector2(568, 366)
+position = Vector2(567, 387)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -20,5 +24,22 @@ scale = Vector2(756.75, 107.75)
 mesh = SubResource("QuadMesh_qcx0f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+light_mask = 17
+visibility_layer = 17
 position = Vector2(581, 589.5)
 shape = SubResource("RectangleShape2D_6j2jj")
+
+[node name="Notas" parent="." instance=ExtResource("2_ywqe0")]
+position = Vector2(790, 129)
+
+[node name="Notas2" parent="." instance=ExtResource("2_ywqe0")]
+position = Vector2(982, 267)
+
+[node name="Notas3" parent="." instance=ExtResource("2_ywqe0")]
+position = Vector2(1068, 440)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(24, 298)
+shape = SubResource("RectangleShape2D_q6omn")
