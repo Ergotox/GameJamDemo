@@ -112,7 +112,7 @@ _data = {
 "walk_up": SubResource("Animation_nwinw")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="PlayerExploration" type="CharacterBody2D"]
 script = ExtResource("1_2m3sq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

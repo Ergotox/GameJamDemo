@@ -21,7 +21,7 @@ func _physics_process(delta):
 	var horizontal_direction = Input.get_axis("left", "right")
 	velocity.x = speed * horizontal_direction
 	
-	var vertical_direction = Input.get_axis("down","up")
+	var vertical_direction = Input.get_axis("down", "up")
 	velocity.y= -speed * vertical_direction
 	
 	if horizontal_direction > 0:

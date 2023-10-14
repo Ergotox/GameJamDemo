@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxwpeivc1ytwf"]
+
+[ext_resource type="PackedScene" uid="uid://bmvjnc8s3i6ei" path="res://Scenes/Battle/playerBattle.tscn" id="1_rsvhr"]
+
+[node name="Battle" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_rsvhr")]
